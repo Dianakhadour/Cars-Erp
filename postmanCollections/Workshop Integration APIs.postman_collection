@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "420dd827-ec4c-4e5f-b9d0-532cffd4328c",
+		"name": "Car ERP - Workshop Integration APIs",
+		"description": "APIs for integrating parts inventory with workshop job cards",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reserve Parts for Job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{tenant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Company-ID",
+						"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+						"type": "text"
+					},
+					{
+						"key": "X-Branch-ID",
+						"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+						"type": "text"
+					},
+					{
+						"key": "x-tenant-domain",
+						"value": "e-carstech.com",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"job_card_id\": \"f893b0d5-1391-436b-b8ab-ffe15add1f47\",\n  \"warehouse_id\": \"1\",\n  \"notes\": \"Reserving parts for scheduled service\",\n  \"parts\": [\n    {\n      \"part_id\": \"00a960ff-0731-411c-8bcd-11edc02ff3c6\",\n      \"quantity\": 2,\n      \"estimated_unit_cost\": 16.50\n    },\n    {\n      \"part_id\": \"78cb3ca4-81cc-41fa-ae00-54df231926dc\",\n      \"quantity\": 1,\n      \"estimated_unit_cost\": 45.00\n    },\n    {\n      \"part_id\": \"8f3c4b24-7297-4e62-908e-ee6c0b702540\",\n      \"quantity\": 5,\n      \"estimated_unit_cost\": 8.75\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/Inventory/parts/reserve-for-job",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"Inventory",
+						"parts",
+						"reserve-for-job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Issue Parts to Job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{tenant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Company-ID",
+						"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+						"type": "text"
+					},
+					{
+						"key": "X-Branch-ID",
+						"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+						"type": "text"
+					},
+					{
+						"key": "x-tenant-domain",
+						"value": "e-carstech.com",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"job_card_id\": \"f893b0d5-1391-436b-b8ab-ffe15add1f47\",\n  \"warehouse_id\": \"1\",\n  \"notes\": \"Issuing parts to technician\",\n  \"parts\": [\n    {\n      \"job_part_id\": \"859e5e3e-1551-410c-ab2f-396b0130cc9c\",\n      \"quantity\": 2\n    },\n    {\n      \"job_part_id\": \"8f68aa62-b0df-4908-840f-502afc7ef590\",\n      \"quantity\": 1\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/Inventory/parts/issue-to-job",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"Inventory",
+						"parts",
+						"issue-to-job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Job Parts Usage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{tenant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Company-ID",
+						"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+						"type": "text"
+					},
+					{
+						"key": "X-Branch-ID",
+						"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+						"type": "text"
+					},
+					{
+						"key": "x-tenant-domain",
+						"value": "e-carstech.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/Inventory/parts/job-usage/:job_id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"Inventory",
+						"parts",
+						"job-usage",
+						":job_id"
+					],
+					"variable": [
+						{
+							"key": "job_id",
+							"value": "43e76750-c4bd-490f-bcc0-e8aae163ceb1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Parts from Job",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{tenant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Company-ID",
+						"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+						"type": "text"
+					},
+					{
+						"key": "X-Branch-ID",
+						"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+						"type": "text"
+					},
+					{
+						"key": "x-tenant-domain",
+						"value": "e-carstech.com",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"job_card_id\": \"43e76750-c4bd-490f-bcc0-e8aae163ceb1\",\n  \"warehouse_id\": \"1\",\n  \"reason\": \"Part not used in repair\",\n  \"notes\": \"Customer issue resolved without part replacement\",\n  \"returns\": [\n    {\n      \"job_part_id\": \"859e5e3e-1551-410c-ab2f-396b0130cc9c\",\n      \"quantity\": 1\n    },\n    {\n      \"job_part_id\": \"8f68aa62-b0df-4908-840f-502afc7ef590\",\n      \"quantity\": 3\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/Inventory/parts/return-from-job",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"Inventory",
+						"parts",
+						"return-from-job"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "your-jwt-token-here",
+			"type": "string"
+		},
+		{
+			"key": "job_id",
+			"value": "job-card-uuid-here",
+			"type": "string"
+		}
+	]
+}

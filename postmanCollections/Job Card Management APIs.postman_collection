@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "28fe50c4-d8d4-447d-9c99-78c37efba505",
+		"name": "Car ERP - Job Card Management APIs",
+		"description": "APIs for managing workshop job cards",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Job Cards CRUD",
+			"item": [
+				{
+					"name": "Get All Job Cards",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/workshop/job-cards?page=1&per_page=20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"workshop",
+								"job-cards"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "pending",
+									"disabled": true
+								},
+								{
+									"key": "technician_id",
+									"value": ":technician_id",
+									"disabled": true
+								},
+								{
+									"key": "date_from",
+									"value": "2024-01-01",
+									"disabled": true
+								},
+								{
+									"key": "date_to",
+									"value": "2024-01-31",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"vehicle_item_id\": \"1\",\n  \"customer_id\": \"5452599c-454f-40aa-84b3-64e0d0d48010\",\n  \"customer_name\": \"John Doe\",\n  \"customer_phone\": \"+1234567890\",\n  \"customer_email\": \"john.doe@example.com\",\n  \"vehicle_license\": \"ABC123\",\n  \"vehicle_vin\": \"1HGCM82633A123456\",\n  \"vehicle_make\": \"Toyota\",\n  \"vehicle_model\": \"Camry\",\n  \"vehicle_year\": 2023,\n  \"vehicle_color\": \"Blue\",\n  \"vehicle_mileage\": 15000,\n  \"service_type\": \"maintenance\",\n  \"work_description\": \"Regular 15,000 mile service including oil change, filter replacement, and tire rotation\",\n  \"customer_complaint\": \"Customer reports slight vibration when braking\",\n  \"estimated_start\": \"2024-01-15 09:00:00\",\n  \"estimated_completion\": \"2024-01-15 12:00:00\",\n  \"estimated_labor_cost\": 120.00,\n  \"estimated_parts_cost\": 85.50,\n  \"assigned_technician_id\": \"fbe61ab0-b242-400b-8346-60a7a1cf540c\",\n  \"service_advisor_id\": \"20a013d1-44eb-4dab-8b7e-823e85f0aaa5\",\n  \"notes\": \"Customer requested loaner vehicle\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/workshop/job-cards",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"workshop",
+								"job-cards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Card Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/workshop/job-cards/:job_card_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"workshop",
+								"job-cards",
+								":job_card_id"
+							],
+							"variable": [
+								{
+									"key": "job_card_id",
+									"value": "f893b0d5-1391-436b-b8ab-ffe15add1f47"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"work_description\": \"Regular 15,000 mile service including oil change, filter replacement, tire rotation, and brake inspection\",\n  \"technician_findings\": \"Brake pads at 40% wear, recommend monitoring\",\n  \"estimated_parts_cost\": 92.75,\n  \"technician_notes\": \"Vehicle in good condition, no additional issues found\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/workshop/job-cards/:job_card_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"workshop",
+								"job-cards",
+								":job_card_id"
+							],
+							"variable": [
+								{
+									"key": "job_card_id",
+									"value": "f893b0d5-1391-436b-b8ab-ffe15add1f47"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job Card Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"in_progress\",\n  \"notes\": \"Work started as scheduled\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/workshop/job-cards/:job_card_id/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"workshop",
+								"job-cards",
+								":job_card_id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "job_card_id",
+									"value": "f893b0d5-1391-436b-b8ab-ffe15add1f47"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job Card",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/workshop/job-cards/:job_card_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"workshop",
+								"job-cards",
+								":job_card_id"
+							],
+							"variable": [
+								{
+									"key": "job_card_id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "your-jwt-token-here",
+			"type": "string"
+		},
+		{
+			"key": "job_card_id",
+			"value": "job-card-uuid-here",
+			"type": "string"
+		},
+		{
+			"key": "technician_id",
+			"value": "technician-uuid-here",
+			"type": "string"
+		}
+	]
+}

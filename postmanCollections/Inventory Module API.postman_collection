@@ -1,0 +1,552 @@
+{
+	"info": {
+		"_postman_id": "f1d04a03-7623-4d4f-b5ef-ca04f3b786ea",
+		"name": "Car-ERP Inventory Module API",
+		"description": "API endpoints for Inventory Management in Car-ERP Laravel Multi-tenant Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Parts Pricing & Costing",
+			"item": [
+				{
+					"name": "Get Part Pricing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts/{{part_id}}/pricing",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts",
+								"{{part_id}}",
+								"pricing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Part Pricing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"selling_price\": 29.99,\n  \"retail_price\": 34.99,\n  \"update_reason\": \"Price adjustment due to supplier cost increase\",\n  \"effective_date\": \"2024-01-15\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts/{{part_id}}/pricing",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts",
+								"{{part_id}}",
+								"pricing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Part Cost (Landed Cost)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"landed_cost\": 18.50,\n  \"cost_components\": [\n    {\n      \"type\": \"freight\",\n      \"amount\": 2.50\n    },\n    {\n      \"type\": \"customs_duty\", \n      \"amount\": 1.25\n    },\n    {\n      \"type\": \"insurance\",\n      \"amount\": 0.75\n    }\n  ],\n  \"purchase_order_id\": \"040eed8d-dae5-4b92-9e9d-70355c71e171\",\n  \"notes\": \"Landed cost calculation for imported parts\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts/{{part_id}}/update-cost",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts",
+								"{{part_id}}",
+								"update-cost"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Essential Reports",
+			"item": [
+				{
+					"name": "Parts Inventory Valuation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/parts-valuation?warehouse_id=1&as_of_date=2024-01-15",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"parts-valuation"
+							],
+							"query": [
+								{
+									"key": "warehouse_id",
+									"value": "1"
+								},
+								{
+									"key": "as_of_date",
+									"value": "2024-01-15"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parts Reorder Suggestions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/parts-reorder-suggestions?urgency=critical",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"parts-reorder-suggestions"
+							],
+							"query": [
+								{
+									"key": "urgency",
+									"value": "critical"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Parts Movement Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/parts-movement-summary?start_date=2024-01-01&end_date=2024-01-31&movement_type=receipt",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"parts-movement-summary"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-01-31"
+								},
+								{
+									"key": "movement_type",
+									"value": "receipt"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supplier Management",
+			"item": [
+				{
+					"name": "List Parts Suppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts-suppliers?search=toyota&is_active=1&per_page=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts-suppliers"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "toyota"
+								},
+								{
+									"key": "is_active",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Parts Supplier",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"code\": \"BOSCH-SA\",\n  \"name\": \"Bosch Saudi Arabia\",\n  \"contact_person\": \"Ahmed Al-Rashid\",\n  \"phone\": \"+966112345678\",\n  \"email\": \"orders@bosch-saudi.com\",\n  \"address\": \"Riyadh, Saudi Arabia\",\n  \"tax_number\": \"1234567890\",\n  \"is_active\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts-suppliers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts-suppliers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "auth_token",
+			"value": "your_jwt_token_here"
+		},
+		{
+			"key": "tenant_id",
+			"value": "7cd2cb61-c2a2-4067-b468-d0af70096026"
+		},
+		{
+			"key": "part_id",
+			"value": "00a960ff-0731-411c-8bcd-11edc02ff3c6"
+		},
+		{
+			"key": "purchase_order_id",
+			"value": "040eed8d-dae5-4b92-9e9d-70355c71e171"
+		}
+	]
+}

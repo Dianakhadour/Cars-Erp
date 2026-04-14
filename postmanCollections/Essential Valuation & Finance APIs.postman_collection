@@ -1,0 +1,821 @@
+{
+	"info": {
+		"_postman_id": "b5580564-c493-447b-9576-f705f2aae6dc",
+		"name": "Car ERP - Essential Valuation & Finance APIs",
+		"description": "Complete API collection for inventory valuation and finance integration in Car ERP system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Inventory Valuation Reports",
+			"item": [
+				{
+					"name": "Get Valuation Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/valuation-summary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"valuation-summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Valuation by Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/valuation-by-category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"valuation-by-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Valuation by Warehouse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/valuation-by-warehouse",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"valuation-by-warehouse"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Finance Integration",
+			"item": [
+				{
+					"name": "Export Stock Valuation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"as_of_date\": \"2024-01-31\",\n  \"include_zero_quantity\": false,\n  \"export_format\": \"accounting_ready\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/finance/export-stock-valuation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"finance",
+								"export-stock-valuation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Cost of Goods Sold (COGS)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/finance/cost-of-goods-sold?start_date=2024-01-01&end_date=2024-01-31&breakdown_by=category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"finance",
+								"cost-of-goods-sold"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-01-31"
+								},
+								{
+									"key": "breakdown_by",
+									"value": "category",
+									"description": "Optional: category, warehouse, or none"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Period End Closing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"closing_date\": \"2024-01-31\",\n  \"period\": \"monthly\",\n  \"notes\": \"January 2024 month-end inventory closing\",\n  \"create_backup\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/finance/period-end-closing",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"finance",
+								"period-end-closing"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sample Data & Testing",
+			"item": [
+				{
+					"name": "Create Sample Inventory for Testing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"warehouse_id\": \"{{warehouse_id}}\",\n  \"reference_type\": \"manual\",\n  \"reference_id\": \"TEST-DATA-SETUP\",\n  \"document_number\": \"TEST-SETUP-001\",\n  \"movement_date\": \"2024-01-30 10:00:00\",\n  \"notes\": \"Creating sample inventory data for valuation testing\",\n  \"lines\": [\n    {\n      \"part_id\": \"00a960ff-0731-411c-8bcd-11edc02ff3c6\",\n      \"quantity\": 100,\n      \"unit_cost\": 15.50,\n      \"batch_number\": \"TEST-BATCH-001\"\n    },\n    {\n      \"part_id\": \"78cb3ca4-81cc-41fa-ae00-54df231926dc\",\n      \"quantity\": 50,\n      \"unit_cost\": 8.75,\n      \"batch_number\": \"TEST-BATCH-002\"\n    },\n    {\n      \"part_id\": \"8f3c4b24-7297-4e62-908e-ee6c0b702540\",\n      \"quantity\": 25,\n      \"unit_cost\": 45.00,\n      \"batch_number\": \"TEST-BATCH-003\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts-movements/receipts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts-movements",
+								"receipts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Sample Issues for COGS Testing",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"warehouse_id\": \"{{warehouse_id}}\",\n  \"reference_type\": \"job_card\",\n  \"reference_id\": \"JC-TEST-COGS\",\n  \"document_number\": \"ISSUE-TEST-001\",\n  \"movement_date\": \"2024-01-15 14:30:00\",\n  \"notes\": \"Sample parts issue for COGS calculation testing\",\n  \"lines\": [\n    {\n      \"part_id\": \"00a960ff-0731-411c-8bcd-11edc02ff3c6\",\n      \"quantity\": 10,\n      \"unit_cost\": 16.00\n    },\n    {\n      \"part_id\": \"78cb3ca4-81cc-41fa-ae00-54df231926dc\",\n      \"quantity\": 5,\n      \"unit_cost\": 9.00\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts-movements/issues",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts-movements",
+								"issues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Current Stock Levels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/parts/stock-levels?warehouse_id={{warehouse_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"parts",
+								"stock-levels"
+							],
+							"query": [
+								{
+									"key": "warehouse_id",
+									"value": "{{warehouse_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Business Intelligence Queries",
+			"item": [
+				{
+					"name": "Get Financial Dashboard Data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/reports/valuation-summary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"reports",
+								"valuation-summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export for Accounting System",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"as_of_date\": \"2024-01-31\",\n  \"export_format\": \"quickbooks\",\n  \"include_categories\": true,\n  \"include_warehouses\": true\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/finance/export-stock-valuation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"finance",
+								"export-stock-valuation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Monthly Profitability Analysis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tenant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Company-ID",
+								"value": "7cd2cb61-c2a2-4067-b468-d0af70096026",
+								"type": "text"
+							},
+							{
+								"key": "X-Branch-ID",
+								"value": "8d383d5b-96e7-4a91-82c5-a5111c21341a",
+								"type": "text"
+							},
+							{
+								"key": "x-tenant-domain",
+								"value": "e-carstech.com",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/Inventory/finance/cost-of-goods-sold?start_date=2024-01-01&end_date=2024-01-31&breakdown_by=category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"Inventory",
+								"finance",
+								"cost-of-goods-sold"
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2024-01-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2024-01-31"
+								},
+								{
+									"key": "breakdown_by",
+									"value": "category"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log('Running Valuation & Finance API Tests - ' + new Date().toISOString());"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Common tests for all APIs",
+					"pm.test(\"Status code is successful\", function () {",
+					"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+					"});",
+					"",
+					"pm.test(\"Response has success true\", function () {",
+					"    var jsonData = pm.response.json();",
+					"    pm.expect(jsonData.success).to.be.true;",
+					"});",
+					"",
+					"pm.test(\"Response time is acceptable\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "your-jwt-token-here",
+			"type": "string"
+		},
+		{
+			"key": "warehouse_id",
+			"value": "your-warehouse-id",
+			"type": "string"
+		},
+		{
+			"key": "part_id_1",
+			"value": "oil-filter-part-id",
+			"type": "string"
+		},
+		{
+			"key": "part_id_2",
+			"value": "air-filter-part-id",
+			"type": "string"
+		},
+		{
+			"key": "part_id_3",
+			"value": "brake-pads-part-id",
+			"type": "string"
+		}
+	]
+}
