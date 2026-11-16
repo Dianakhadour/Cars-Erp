@@ -167,10 +167,5 @@ Ready-made collections are included:
 - `laravel11-erp-architecture.md`: multi-tenant architecture, scope and design goals.
 - `inventory-module.md`: inventory module requirements, process flows and ER diagrams.
 
-## Roadmap
-
-- Add automated tests (feature tests for tenant isolation, journal posting and stock movements).
-- Add Form Requests and policies for validation and authorization across controllers.
-- Add API documentation (OpenAPI).
 
 
